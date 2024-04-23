@@ -1,6 +1,9 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserServiceImpl;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,6 +11,7 @@ public class Main {
         UserServiceImpl userService = new UserServiceImpl();
 
         // Создание таблицы User(ов)
+        userService.dropUsersTable();
         userService.createUsersTable();
         // Добавление 4 User(ов) в таблицу с данными на свой выбор
         userService.saveUser("Maxim1", "Curbanow1", (byte) 1);
@@ -15,7 +19,9 @@ public class Main {
         userService.saveUser("Maxim3", "Curbanow3", (byte) 1);
         userService.saveUser("Maxim4", "Curbanow4", (byte) 1);
         // Получение всех User из базы и вывод в консоль (должен быть переопределен toString в классе User)
-        userService.getAllUsers();
+        List<User> users  = userService.getAllUsers();
+        System.out.println(users);
+
         // Очистка таблицы User(ов)
         userService.cleanUsersTable();
         // Удаление таблицы
