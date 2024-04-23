@@ -2,16 +2,16 @@ package jm.task.core.jdbc;
 
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserServiceImpl;
+import jm.task.core.jdbc.service.UserService;
 
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         // реализуйте алгоритм здесь
-        UserServiceImpl userService = new UserServiceImpl();
+        UserService userService = new UserServiceImpl();
 
         // Создание таблицы User(ов)
-        userService.dropUsersTable();
         userService.createUsersTable();
         // Добавление 4 User(ов) в таблицу с данными на свой выбор
         userService.saveUser("Maxim1", "Curbanow1", (byte) 1);
