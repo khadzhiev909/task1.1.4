@@ -2,7 +2,10 @@ package jm.task.core.jdbc;
 
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
+
 import jm.task.core.jdbc.service.UserServiceImpl;
+
+import java.util.List;
 
 import java.util.List;
 
@@ -21,6 +24,7 @@ public class Main {
         // Получение всех User из базы и вывод в консоль (должен быть переопределен toString в классе User)
         List<User> users = userService.getAllUsers();
         System.out.println(users);
+        
         // Очистка таблицы User(ов)
         userService.cleanUsersTable();
         // Удаление таблицы
